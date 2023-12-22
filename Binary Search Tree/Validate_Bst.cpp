@@ -43,12 +43,12 @@ node* InsertIntoBst(node* &root, int data){
         return root;
     }
 
-    //if data is greater than the data of the root node, then call the recursive function for the right subtree
+    //if the data is greater than the data of the root node, then call the recursive function for the right subtree
     if(data > root->data){
         root->right = InsertIntoBst(root->right , data);
     }
 
-    //if data is ledd than the data of the root node, then call the recursive function for the left subtree
+    //if the data is less than the data of the root node, then call the recursive function for the left subtree
     else{
         root->left = InsertIntoBst(root->left, data);
     }
