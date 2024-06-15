@@ -29,7 +29,7 @@ int solveMem(vector<int> &num, int tar, vector<int> &dp){
     
     int ans = 0;
     for(int i = 0; i < num.size(); i++){
-        ans += solve(num, tar-num[i]);
+        ans += solveMem(num, tar-num[i], dp);
     }
     
     dp[tar] = ans;
