@@ -1,22 +1,33 @@
 #include<iostream>
-#include<queue>
 #include<stack>
+#include<queue>
 using namespace std;
 
-void reverse_queue(queue<int> q){
+queue<int> reverseElements(queue<int> q, int k){
+    //Step1
     stack<int> st;
-
-    while(!q.empty()){
-        int element = q.front();
+    for(int i = 0; i < k; i++){
+        int ele = q.front();
         q.pop();
-        st.push(element);
+        st.push(ele);
     }
 
+    //Step2
     while(!st.empty()){
         int ele = st.top();
         st.pop();
         q.push(ele);
     }
+
+    //Step3
+    int t = q.size() - k;
+    while(t--){
+        int ele = q.front();
+        q.pop();
+        q.push(ele);
+    }
+
+    return q;
 }
 
 void display(queue<int> q){
@@ -28,20 +39,17 @@ void display(queue<int> q){
 }
 
 int main(){
-
     queue<int> q;
     q.push(1);
     q.push(2);
     q.push(3);
     q.push(4);
     q.push(5);
-    q.push(6);
-
     display(q);
 
-    reverse_queue(q);
+    queue<int> rq = reverseElements(q, 3);
 
-    display(q);
+    display(rq);
 
     return 0;
 }
