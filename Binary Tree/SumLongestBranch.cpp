@@ -60,6 +60,37 @@ int SumOfLongestBranch(Node* root){
     return max_sum;
 }
 
+pair<int, int> solve(Node* root){
+    if(root == NULL){
+        pair<int, int> p = make_pair(0, 0);
+        return p;
+    }
+
+    pair<int, int> left = solve(root->left);
+    pair<int, int> right = solve(root->right);
+
+    pair<int, int> ans;
+
+    //compare the length of left and right paths
+    if(left.second > right.second){
+        ans.first = left.first + root->data;
+        ans.second = left.second + 1;
+    }
+    else if(right.second > left.second){
+        ans.first = right.first + root->data;
+        ans.second = right.second + 1;
+    }
+    else{
+        ans.first = max(left.first, right.first) + root->data;
+        ans.second = left.second + 1;
+    }
+    return ans;
+}
+
+int SumOfLongestBranch1(Node* root){
+    return solve(root).first;
+}
+
 int main(){
     Node* root = NULL;
     root = BuildTree(root);
