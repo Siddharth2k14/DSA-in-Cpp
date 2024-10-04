@@ -65,7 +65,7 @@ Node* solve(Node* root, int &k, int node){
 
 int KAncestor(Node* root, int k, int node){
     Node* ans = solve(root, k, node);
-    if(ans == NULL){
+    if(ans == NULL || ans->data == node){
         return -1;
     }
     else{
