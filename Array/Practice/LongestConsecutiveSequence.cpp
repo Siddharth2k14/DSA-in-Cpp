@@ -69,6 +69,7 @@ int LongestConsecutiveSequence(vector<int> &nums)
     return longest;
 }*/
 
+//Optimal
 int LongestConsecutiveSequence(vector<int> &nums){
     int size = nums.size();
     if(size == 0){
