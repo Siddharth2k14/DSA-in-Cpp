@@ -60,6 +60,7 @@ int MajorityElement(vector<int> &nums){
         }
     }
 
+    //Checking for majority element in the array
     int count1 = 0;
     for(int i = 0; i < n; i++){
         if(nums[i] == element){
